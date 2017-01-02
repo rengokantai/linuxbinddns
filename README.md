@@ -90,3 +90,22 @@ $TTL
 ```
 $TTL 172800
 ```
+
+
+###3 $ORIGIN
+```
+$ ORIGIN example.com.
+www IN A 192.168.1.45
+www.example.com.
+ftp IN CNAME server1
+ftp.example.com. IN CNAME server1.example.com.
+```
+
+IN FQDN
+```
+ftp.example.org.
+```
+Is not FQDN
+```
+ftp.example.org //unqualified
+```
