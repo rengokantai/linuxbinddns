@@ -155,3 +155,49 @@ $ORIGIN example.com.
   IN NS ns2.example.com.
   IN MX 10 mail.example.com.
 ```
+###7 A
+```
+server1 IN A 10.0.8.6
+server2 IN A 10.9.8.4
+```
+
+###8 CNAME
+name ttl class CNAME name
+```
+ftp IN CNAME server1
+www IN CNAME server2
+voip IN CNAME voip.example.net.
+```
+avoid chaining CNAMEs
+
+
+###9 PTR
+Pointer Resource Record
+- Used for reverse lookups
+- Forward lookup
+
+
+
+##4. Basic Name Server Setup
+###2 Create and verify the zone file
+ke.zone file
+```
+$ORIGIN ke.com.
+$TTL 3M ;3 minutes
+@ IN SOA ns1.ke.com. hostmaster.ke.com. 2017010101 3M 3M 3M 3M
+  IN NS ns1.ke.com.
+ns1 IN A 192.168.0.100
+```
+vim /etc/named/conf
+```
+zone "ke.com" IN{
+  type master;
+  file "ke.zone";
+};
+```
+verify check
+```
+named-checkconf /etc/named.conf
+named-checkconf -p /etc/named.conf //verbose
+named-checkzone ke.site ke.zone
+```
