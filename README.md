@@ -123,4 +123,35 @@ $ORIGIN example.com.
 ```
   
   
-  
+###5 NS
+syntax:
+- name ttl class NS name
+```
+$TTL 86400
+$ORIGIN example.com.
+@ IN SOA ns1.example.com. hostmaster.example.com.(
+  2015010101 ; serial yyyymmddss
+  21600 ;refresh after 6 hours
+  604000 ; expire after 1 week
+  86400 ) ; nxdomain TTL of 1 day
+  IN NS ns1.example.com.
+  IN NS ns2.example.com.
+```
+
+###6 MX
+MX Resource Record
+- mail exchanger
+- name ttl class MX preference name
+- Tries the MX with the lowest preference first (if multiple mail servers have same priority, choose randomly)
+```
+$TTL 86400
+$ORIGIN example.com.
+@ IN SOA ns1.example.com. hostmaster.example.com.(
+  2015010101 ; serial yyyymmddss
+  21600 ;refresh after 6 hours
+  604000 ; expire after 1 week
+  86400 ) ; nxdomain TTL of 1 day
+  IN NS ns1.example.com.
+  IN NS ns2.example.com.
+  IN MX 10 mail.example.com.
+```
