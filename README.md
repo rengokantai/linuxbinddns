@@ -28,3 +28,15 @@ zone "." IN{
   file "root.servers";
 };
 ```
+
+
+###2 Forwarding name server
+Caching NS
+- Caches results of DNS queries
+- Conducts __recursive__ queries
+- Sends __multiple__ queries and receives multiple replies
+
+Forwarding NS
+- Caches results of DNS queries
+- Conducts __nonrecursive__ queries
+- Sends a __single__ query and receives a single reply
