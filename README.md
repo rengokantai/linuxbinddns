@@ -109,3 +109,18 @@ Is not FQDN
 ```
 ftp.example.org //unqualified
 ```
+
+
+###4 SOA
+```
+$TTL 86400
+$ORIGIN example.com.
+@ IN SOA ns1.example.com. hostmaster.example.com.(
+  2015010101 ; serial yyyymmddss
+  21600 ;refresh after 6 hours
+  604000 ; expire after 1 week
+  86400 ) ; nxdomain TTL of 1 day
+```
+  
+  
+  
