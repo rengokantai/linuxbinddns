@@ -201,3 +201,7 @@ named-checkconf /etc/named.conf
 named-checkconf -p /etc/named.conf //verbose
 named-checkzone ke.site ke.zone
 ```
+
+##5. Advenced Name Server Setup
+```
+buddyns.com
